@@ -20,4 +20,4 @@ INSERT INTO "areasAtv4" ("name") VALUES ('TI'), ('Humanas'), ('Exatas');
 
 INSERT INTO "coursesAtv4" ("name") VALUES ('Dev Full Stack'), ('Sociologia'), ('Matematica');
 
-INSERT INSERT "areasAtv4_coursesAtv4" ("areasAtv4Id","coursesAtv4Id") VALUES (1,1), (1,3),(2,2),(3,3);
+INSERT INSERT "areasAtv4_coursesAtv4" ("areasAtv4Id","coursesAtv4Id") VALUES (1,1), (1,3), (2,2), (3,3);
