@@ -32,3 +32,39 @@ endereco."numero",
 FROM students ON students."id" = endereco."studentsId";
 -- Aqui renomeia as colunas de mesmo nome e exclui colunas que trazem informações iguais
 
+
+
+
+CREATE TABLE products3 (
+    "id" SERIAL PRIMARY KEY,
+    "name" VARCHAR(150) NOT NULL,
+    "price" INTEGER NOT NULL
+);
+
+CREATE TABLE categories3 (
+    "id" SERIAL PRIMARY KEY,
+    "name" VARCHAR(150) NOT NULL
+);
+
+CREATE TABLE products_categories3 (
+    "id" SERIAL PRIMARY KEY,
+    "productId" INTEGER NOT NULL,
+    "categoryId" INTEGER NOT NULL,
+    FOREIGN KEY ("productId") REFERENCES products3("id") ON DELETE CASCADE,
+    FOREIGN KEY ("categoryId") REFERENCES categories3("id") ON DELETE CASCADE
+);
+
+SELECT * FROM products3 JOIN products_categories3 ON products3."id" = products_categories3."productsId" JOIN categories3 ON categories3."id" = products_categories3."categoryId";
+-- Assim a tabela não estara organizada, mas aparecera a relação completas de todos os produtos e suas categorias.
+
+SELECT products3."id" AS "productId",
+products3."name" AS "productName",
+products3."price" AS "productPrice",
+categories3."id" AS "categoryId",
+categories3."name" AS "categoryName"
+FROM products3
+JOIN products_categories3 ON products3."id" = products_categories3."productId"
+JOIN categories3 ON categories3."id" = products_categories3."categoryId";
+--Assim a tabela renomeara ps nomes excuindo informações repetidas ou desnecessarias
+WHERE products."id" = 2; -- adicionando a clausula where busca-se somente um products pelo id informado
+
